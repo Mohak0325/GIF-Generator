@@ -2,42 +2,17 @@ import React from 'react';
 import Spinner from './Spinner';
 import useGif from '../Hook/useGif';
 
-const API_KEY = 'PI12WODuiucIaLqYuke5iK06n6Cop1yj';
-
 const Random = () => {
-
-    // const [gif, setGif] = useState(null);
-    // const [loading, setLoading] = useState(false);
-
-    // const fetchGif = async () => {
-    //     try{
-    //         setLoading(true);
-    //         const url = `https://api.giphy.com/v1/gifs/random?api_key=${API_KEY}`;
-    //         const {data} = await axios.get(url);
-    //         const imageSource = data.data.images.downsized_large.url;
-    //         setGif(imageSource);
-    //         setLoading(false);
-    //     }
-    //     catch(error){
-    //         console.log(error);
-    //         setGif(null);
-    //         setLoading(false);
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fetchGif();
-    // }, []);
     const {gif, loading, fetchGif} = useGif();
 
     return (
         <div className='w-1/2 bg-green-500 rounded-lg border border-black flex flex-col items-center gap-y-5 mt-[15px]'>
-            <h1 className='mt-[15px] text-2xl uppercase underline font-bold'>A Random Gif</h1>
+            <h1 className='sm:text-sm md:text-lg lg:text-xl  2xl:text-2xl mt-[15px] uppercase underline font-bold'>A Random Gif</h1>
 
             {loading ? <Spinner/> : <img width="450" height="450" className='w-[450px] h-[350px]' src={gif} alt='Random Gif'/>}
             <button 
                 onClick={() => fetchGif()}
-                className='w-10/12 bg-yellow-500 text-lg py-2 rounded-lg mb-[20px]'
+                className='w-10/12 bg-yellow-500 sm:text-sm md:text-lg lg:text-lg 2xl:text:lg py-2 rounded-lg mb-[20px]'
             >
                 Generate
             </button>
